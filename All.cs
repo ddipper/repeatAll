@@ -227,8 +227,108 @@ int[] numbers2 = { 3, -4, 5, -6, 7 };
 Console.WriteLine(Sum(numbers1));
 Console.WriteLine(Sum(numbers2));*/
 
+// -----------------------------     Switch & case     -----------------------------
+/*string name = "Jack";
+switch (name)
+{
+    case "Bob":
+        Console.WriteLine("Ваше имя - Bob");
+        break;
+    case "Tom":
+        Console.WriteLine("Ваше имя - Tom");
+        break;
+    case "Sam":
+        Console.WriteLine("Ваше имя - Sam");
+        break;
+    case "Jack":
+        Console.WriteLine("Ohh, Jack");
+        goto default;
+    default:
+        Console.WriteLine("Неизвестное имя");
+        break;
+}*/
+
+/*int DoOperation(char op, int a, int b)
+{
+    switch (op)
+    {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return a / b; 
+        default: return 0;
+    }
+}
+int a = Convert.ToInt32(Console.ReadLine());
+int b = Convert.ToInt32(Console.ReadLine());
+char operation = Convert.ToChar(Console.ReadLine());
+Console.WriteLine(DoOperation(operation, a, b));*/
+
+/*int DoOperation(char op, int a, int b) => op switch{      //Сокращенная версия switch
+    '+' => a + b,
+    '-' => a - b,
+    '*' => a * b,
+    '/' => a / b,
+    _ => 0
+};
+int a = Convert.ToInt32(Console.ReadLine());
+int b = Convert.ToInt32(Console.ReadLine());
+char operation = Convert.ToChar(Console.ReadLine());
+Console.WriteLine(DoOperation(operation, a, b));*/
+
+// -----------------------------     Перечисления enum     -----------------------------
+/*DayTime now = DayTime.Morning;
+PrintMessage(now);                   // Добрый вечер
+PrintMessage(DayTime.Afternoon);    // Добрый день
+PrintMessage(DayTime.Night);        // Доброй ночи
+void PrintMessage(DayTime dayTime)
+{
+    switch (dayTime)
+    {
+        case DayTime.Morning:
+            Console.WriteLine("Доброе утро");
+            break;
+        case DayTime.Afternoon:
+            Console.WriteLine("Добрый день");
+            break;
+        case DayTime.Evening:
+            Console.WriteLine("Добрый вечер");
+            break;
+        case DayTime.Night:
+            Console.WriteLine("Доброй ночи");
+            break;
+    }
+}
+enum DayTime
+{
+    Morning,
+    Afternoon,
+    Evening,
+    Night
+}*/
+
+/*DoOperation(10, 5, Operation.Add);          // 15
+DoOperation(10, 5, Operation.Subtract);     // 5
+DoOperation(10, 5, Operation.Multiply);     // 50
+DoOperation(10, 5, Operation.Divide);       // 2
+void DoOperation(double x, double y, Operation op)
+{
+    double result = op switch
+    {
+        Operation.Add => x + y,
+        Operation.Subtract => x - y,
+        Operation.Multiply => x * y,
+        Operation.Divide => x / y
+    };
+    Console.WriteLine(result);
+}
+enum Operation
+{
+    Add,
+    Subtract,
+    Multiply,
+    Divide
+}*/
 
 
-/*Console.WriteLine("Enter your name: ");
-var name = Console.ReadLine();
-Console.WriteLine($"Your name: {name}");*/
+
