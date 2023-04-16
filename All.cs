@@ -147,6 +147,85 @@ Console.WriteLine(GetMessage());
 string GetMessageRu() => "Привет";
 Console.WriteLine(GetMessageRu());*/
 
+// -----------------------------     REF     -----------------------------
+/*void Increment(ref int n)
+{
+    n++;
+    Console.WriteLine($"Число в методе Increment: {n}");//6
+}
+int number = 5;
+Console.WriteLine($"Число до метода Increment: {number}");//5
+Increment(ref number);
+Console.WriteLine($"Число после метода Increment: {number}");//6*/
+
+// -----------------------------     OUT     -----------------------------
+/*void Sum(int x, int y, out int result) //out = return + ref
+{
+    result = x + y;
+}
+int number;
+Sum(10, 15, out number);
+Console.WriteLine(number);   // 25*/
+
+/*oid GetRectangleData(int width, int height, out int rectArea, out int rectPerimetr)
+{
+    rectArea = width * height;       // площадь прямоугольника
+    rectPerimetr = (width + height) * 2; // периметр прямоугольника
+}
+int area;
+int perimetr;
+GetRectangleData(10, 20, out area, out perimetr);
+Console.WriteLine($"Площадь прямоугольника: {area}");       // 200
+Console.WriteLine($"Периметр прямоугольника: {perimetr}");   // 60*/
+
+// -----------------------------     PARAMS     -----------------------------
+/*void Sum(int initialValue, params int[] mass) //после параметра с модификатором params мы НЕ можем указывать другие параметры.
+{
+    int result = initialValue;
+    foreach (var n in mass)
+        result += n;
+    Console.WriteLine(result);
+}
+int[] nums = { 1, 2, 3, 4, 5, 6 };
+Sum(10, nums);  // число 10 - передается параметру initialValue*/
+
+// -----------------------------     Рекурсивная функция факториала     -----------------------------
+// рекурсивная функция - функция, которая вызывает сама себя
+/*int Factorial(int n)
+{
+    if (n == 1) return 1; // базовый вариант
+
+    return n * Factorial(n - 1);
+}
+Console.WriteLine(Factorial(4));*/
+
+/*int Fibonachi(int n)
+{
+    if (n == 0 || n == 1) return n; // базовый вариант
+
+    return Fibonachi(n - 1) + Fibonachi(n - 2);
+}
+Console.WriteLine(Fibonachi(7));*/
+
+// -----------------------------     Static & function     -----------------------------
+/*int Sum(int[] numbers)
+{
+    int result = 0;
+    int limit = 0;
+    foreach (int number in numbers)
+        if (IsPassed(number, limit)) result += number;
+    return result;
+    static bool IsPassed(int number, int lim)   //IsPassed - локальная статическая функция; 
+    //static - не дает функции обращаться к окружению, данная функция имеет доступ только к переменным number и lim
+    {
+        //return number > limit; // Ошибка: метод IsPassed не имеет доступа к переменной limit
+        return number > lim;
+    }
+}
+int[] numbers1 = { -3, -2, -1, 0, 1, 2, 3 };
+int[] numbers2 = { 3, -4, 5, -6, 7 };
+Console.WriteLine(Sum(numbers1));
+Console.WriteLine(Sum(numbers2));*/
 
 
 
