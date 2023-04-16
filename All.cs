@@ -307,7 +307,8 @@ enum DayTime
     Night
 }*/
 
-/*DoOperation(10, 5, Operation.Add);          // 15
+/*Console.WriteLine((int)Operation.Add);  //0
+DoOperation(10, 5, Operation.Add);          // 15
 DoOperation(10, 5, Operation.Subtract);     // 5
 DoOperation(10, 5, Operation.Multiply);     // 50
 DoOperation(10, 5, Operation.Divide);       // 2
@@ -324,11 +325,22 @@ void DoOperation(double x, double y, Operation op)
 }
 enum Operation
 {
-    Add,
-    Subtract,
-    Multiply,
-    Divide
+    Add,        //0
+    Subtract,   //1
+    Multiply,   //2
+    Divide      //3
 }*/
 
 
+/*************************       CLASES     START #3        *************************/
 
+class Person
+{
+    public string name = "Undefined";
+    public int age;
+
+    public void Print()
+    {
+        Console.WriteLine($"Name: {name}, age: {age}");
+    }
+}
