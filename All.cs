@@ -384,7 +384,8 @@ class Person
 {
     public string name;
     public int age;
-    public Person(string name = "Undefined", int age = 0)    {
+    public Person(string name = "Undefined", int age = 0)
+    {
         this.name = name;
         this.age = age;
     }
@@ -415,9 +416,11 @@ class Company
 }*/
 
 // -----------------------------     ДЕКОНСТРУКТОРЫ     -----------------------------
-Person tom = new("Tom", 18);
-int ageT; 
-tom.Deconstruct(_, ageT);
+// деконструкторы позволяют выполнить декомпозицию объекта на отдельные части.
+/*Person tom = new("Tom", 18);
+int ageT;
+tom.Deconstruct(out _, out ageT);
+Console.WriteLine(ageT); //18
 class Person
 {
     public string name;
@@ -432,4 +435,57 @@ class Person
         name = this.name;
         age = this.age;
     }
+}*/
+
+// инструкции верхнего уровня (top-level statements)
+/*Person tom = new();
+tom.SayHello();
+// определение класса идет после инструкций верхнего уровня
+class Person
+{
+    public void SayHello() => Console.WriteLine("Hello");
+}*/
+
+// -----------------------------     СТРУКТУРЫ STRUCT     -----------------------------
+/*Person tom = new Person() {name = "Tom", age = 18};
+//tom.name = "Tom";
+//tom.age = 18;
+Person bob = tom with {name = "Bob" }; // оператор with используется для копирование значений с одной структуры, в другую с небольшими изменениями
+tom.Print();
+bob.Print();
+struct Person
+{
+    public string name = "TOM";
+    public int age = 1;
+    public Person() { }
+    public void Print() => Console.WriteLine($"Name: {name}, age: {age}");
+}*/
+
+// -----------------------------     Типы значений и ссылочные типы     -----------------------------
+//      ТИПЫ ЗНАЧЕНИЙ (Value types):
+//Целочисленные типы(byte, sbyte, short, ushort, int, uint, long, ulong)
+//Типы с плавающей запятой (float, double)
+//Тип decimal
+//Тип bool
+//Тип char
+//Перечисления enum
+//Структуры (struct)
+//      ССЫЛОЧНЫЕ ТИПЫ (Reference types):
+//Тип object
+//Тип string
+//Классы (class)
+//Интерфейсы(interface)
+//Делегаты(delegate)
+State state1 = new State(); // State - структура, ее данные размещены в стеке
+Country country1 = new Country(); // Country - класс, в стек помещается ссылка на адрес в хипе
+// а в хипе располагаются все данные объекта country1
+struct State
+{
+    public int x;
+    public int y;
+}
+class Country
+{
+    public int x;
+    public int y;
 }
