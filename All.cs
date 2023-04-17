@@ -334,13 +334,102 @@ enum Operation
 
 /*************************       CLASES     START #3        *************************/
 
-class Person
+/*Car suzuki = new Car();
+string nameSuz = suzuki.name = Console.ReadLine();
+int yearSuz = suzuki.year = Convert.ToInt32(Console.ReadLine());
+suzuki.Print();
+
+class Car
 {
     public string name = "Undefined";
-    public int age;
+    public int year = 0000;
 
     public void Print()
     {
+        Console.WriteLine($"Car name: {name}, year car: {year}");
+    }
+}*/
+
+/*Persons tom = new Persons(); // класс Persons создан в файле Persons.cs
+tom.name = "Bob";
+tom.Print();*/
+
+// -----------------------------     THIS     -----------------------------
+/*Person tom = new Person();
+Person bob = new ("Bob"); // сокращенный вызов конструктора
+Person jack = new Person("Jack", 18);
+tom.Print();
+bob.Print();
+jack.Print();
+class Person
+{
+    public string name;
+    public int age;
+    public Person(){ name = "Undefined"; age = 0;} // 1 конструктор
+    public Person(string name) { this.name = name; age = 0; }  // 2 конструктор; если одинаковые названия у параметров и у полей, this указывает на поле
+    public Person(string name, int age) { this.name = name; this.age = age; } // ключевое слово this представляет ссылку на текущий экземпляр/объект класса.
+    public void Print()
+    {
         Console.WriteLine($"Name: {name}, age: {age}");
+    }
+}*/
+
+/*Person tom = new();
+Person bob = new("Bob");
+Person sam = new("Sam", 18);
+tom.Print();
+bob.Print();
+sam.Print();
+class Person
+{
+    public string name;
+    public int age;
+    public Person(string name = "Undefined", int age = 0)    {
+        this.name = name;
+        this.age = age;
+    }
+    public void Print() => Console.WriteLine($"Name: {name}, age: {age}");
+}*/
+
+// -----------------------------     ИНИЦИАЛИЗАТОРЫ     -----------------------------
+//Для инициализации объектов классов можно применять инициализаторы.
+//Инициализаторы представляют передачу в фигурных скобках значений доступным полям и свойствам объекта
+//Инициализатор выполняется после конструктора, поэтому если и в конструкторе, и в инициализаторе устанавливаются значения одних и тех же полей и свойств,
+//то значения, устанавливаемые в конструкторе, заменяются значениями из инициализатора.
+/*Person tom = new Person() {name = "Tom", company = { title = "Microsoft"} };
+tom.Print();
+class Person
+{
+    public string name;
+    public Company company;
+    public Person()
+    {
+        name = "Undefined";
+        company = new Company();
+    }
+    public void Print() => Console.WriteLine($"Name: {name}, company: {company.title}");
+}
+class Company
+{
+    public string title = "Unknown";
+}*/
+
+// -----------------------------     ДЕКОНСТРУКТОРЫ     -----------------------------
+Person tom = new("Tom", 18);
+int ageT; 
+tom.Deconstruct(_, ageT);
+class Person
+{
+    public string name;
+    public int age;
+    public Person(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+    public void Deconstruct(out string name, out int age)
+    {
+        name = this.name;
+        age = this.age;
     }
 }
